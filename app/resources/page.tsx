@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Card,
   CardHeader,
@@ -20,10 +19,8 @@ import { Badge } from "@/components/ui/badge";
 import {
   FileText,
   Download,
-  Info,
   ClipboardList,
   AlertTriangle,
-  CalendarCheck,
   Smile,
   Baby,
   Clock,
@@ -156,7 +153,7 @@ export default function ResourcesPage() {
             <div className="max-w-2xl">
               <h2 className="text-2xl font-semibold text-foreground">Frequently asked questions</h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Short answers to common concerns — if you don't find your question, reach out and we'll help.
+                Short answers to common concerns — if you don&apos;t find your question, reach out and we&apos;ll help.
               </p>
             </div>
 
