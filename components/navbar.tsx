@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -15,96 +14,164 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { Calendar, Phone } from "lucide-react";
-import { desc } from "framer-motion/client";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* ---------- Brand Logo ---------- */}
         <Link href="/" className="flex items-center gap-2">
-          {/* <Image
-            src="/logo.svg"
-            alt="Respeldent Orthodontics"
-            width={36}
-            height={36}
-            className="h-9 w-auto"
-          /> */}
           <span className="text-base font-semibold tracking-tight text-foreground">
-            Resplendent
+            Resplendent Orthodontics
           </span>
         </Link>
 
-        {/* ---------- Navigation Menu ---------- */}
+        {/* ---------- Navigation Menu (Desktop) ---------- */}
         <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList>
-
+          <NavigationMenuList className="gap-1">
             {/* Treatments Dropdown */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Treatments</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[500px] gap-3 p-4 sm:grid-cols-2">
-                  <NavLink href="/services/metal-braces" title="Metal Braces"  desc="lorem lorem lorem"/>
-                  <NavLink href="/services/ceramic-braces" title="Ceramic Braces" desc="lorem lorem lorem" />
-                  <NavLink href="/services/lingual-braces" title="Lingual Braces" desc="lorem lorem lorem" />
-                  <NavLink href="/services/clear-aligners" title="Clear Aligners" desc="lorem lorem lorem" />
-                  <NavLink href="/services/pediatric-orthodontics" title="Pediatric Orthodontics" desc="lorem lorem lorem" />
-                  <NavLink href="/services/surgical-planning" title="Digital Surgical Planning" desc="lorem lorem lorem" />
-                </ul>
+              <NavigationMenuTrigger
+                className={cn(
+                  "text-sm font-medium text-muted-foreground",
+                  "data-[state=open]:bg-secondary/20 data-[state=open]:text-foreground"
+                )}
+              >
+                Treatments
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className="rounded-xl border border-border/60 bg-card/95 shadow-lg backdrop-blur-sm">
+                <div className="w-[520px] lg:w-[600px] p-4">
+                  <div className="mb-3 px-1">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-secondary-foreground/80">
+                      Comprehensive orthodontic care
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Explore braces, clear aligners, growth guidance, and advanced biomechanics.
+                    </p>
+                  </div>
+
+                  <ul className="grid gap-3 sm:grid-cols-2">
+                    <NavLink
+                      href="/services/brackets"
+                      title="Brackets (Metal, Ceramic, Lingual)"
+                      desc="Reliable fixed braces with aesthetic and hidden options tailored to your needs."
+                    />
+                    <NavLink
+                      href="/services/clear-aligners"
+                      title="Clear Aligners"
+                      desc="Removable, nearly invisible trays designed for discreet, lifestyle-friendly treatment."
+                    />
+                    <NavLink
+                      href="/services/growth-modifying-appliances"
+                      title="Growth Modifying Appliances"
+                      desc="Guiding jaw growth in children and teens to correct skeletal imbalances early."
+                    />
+                    <NavLink
+                      href="/services/mini-implant"
+                      title="Mini-Implants (TADs)"
+                      desc="Tiny temporary anchors that help move teeth precisely in complex cases."
+                    />
+                    <NavLink
+                      href="/services/extra-alveolar-screws"
+                      title="Extra-Alveolar Screws"
+                      desc="Special anchorage screws for larger tooth movements and advanced mechanics."
+                    />
+                    <NavLink
+                      href="/services/digital-surgical-planning"
+                      title="Digital Surgical Planning"
+                      desc="3D-planned orthodontic–surgical treatments for complex jaw and facial corrections."
+                    />
+                    <NavLink
+                      href="/services/artistic-mechanics"
+                      title="Artistic Mechanics"
+                      desc="Finishing, detailing, and smile artistry to perfect function and aesthetics."
+                    />
+                  </ul>
+                </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
 
+            {/* Static nav links – using asChild, no legacyBehavior */}
             <NavigationMenuItem>
-              <Link href="/about" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  About
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  "text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/20"
+                )}
+              >
+                <Link href="/about">About</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/team" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Our Team
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  "text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/20"
+                )}
+              >
+                <Link href="/team">Our Team</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/resources" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Patient Resources
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  "text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/20"
+                )}
+              >
+                <Link href="/resources">Patient Resources</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/success" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Success Stories
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  "text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/20"
+                )}
+              >
+                <Link href="/success">Success Stories</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/contact" legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Contact
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  "text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/20"
+                )}
+              >
+                <Link href="/contact">Contact</Link>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* ---------- Actions ---------- */}
+        {/* ---------- Actions (Desktop) ---------- */}
         <div className="hidden items-center gap-2 md:flex">
-          <Button asChild variant="outline" size="sm" className="gap-2">
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="gap-2 border-secondary text-secondary-foreground hover:bg-secondary/10"
+          >
             <a href="tel:+91XXXXXXXXXX" aria-label="Call clinic">
               <Phone className="size-4" />
               Call
             </a>
           </Button>
-          <Button asChild size="sm" className="gap-2">
+          <Button
+            asChild
+            size="sm"
+            className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
+          >
             <Link href="/contact#book">
               <Calendar className="size-4" />
               Book Appointment
@@ -116,7 +183,7 @@ export function Navbar() {
   );
 }
 
-/* Helper link card inside dropdown */
+/* Dropdown item card */
 function NavLink({
   href,
   title,
@@ -131,25 +198,13 @@ function NavLink({
       <Link
         href={href}
         className={cn(
-          "group block select-none space-y-1 rounded-md p-3 leading-none no-underline transition-colors",
-          "hover:bg-muted focus:bg-muted"
+          "block select-none space-y-1 rounded-md p-3 leading-snug no-underline transition-colors",
+          "border border-transparent hover:border-primary/25 hover:bg-secondary/10"
         )}
       >
-        <div>
-          <h6 className="text-sm font-medium leading-none text-foreground transition-colors group-hover:text-primary">
-            {title}
-          </h6>
-          <p
-            className={cn(
-              "text-sm text-muted-foreground transition-colors duration-300",
-              "group-hover:text-accent"
-            )}
-          >
-            {desc}
-          </p>
-        </div>
+        <h6 className="text-sm font-semibold text-foreground">{title}</h6>
+        <p className="text-xs text-muted-foreground">{desc}</p>
       </Link>
     </li>
   );
 }
-
