@@ -167,7 +167,7 @@ export default function SectionProof({
           </div>
           <div className="flex w-full md:w-auto gap-3">
             <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-              <Link href="/contact#book">Book Appointment</Link>
+              <Link href="/contact">Book Appointment</Link>
             </Button>
             <Button asChild variant="outline" className="bg-primary border-primary/20 text-background hover:bg-primary/70">
               <Link href="/services">Explore Treatments</Link>

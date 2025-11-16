@@ -81,7 +81,7 @@ export default function Footer() {
 
             <div className="mt-6">
               <Link
-                href="/contact#book"
+                href="/contact"
                 className="inline-block bg-accent text-accent-foreground px-5 py-2 rounded-md text-sm font-medium hover:bg-accent/90 transition"
               >
                 Book Appointment

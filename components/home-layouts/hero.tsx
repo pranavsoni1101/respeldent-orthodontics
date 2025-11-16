@@ -33,7 +33,7 @@ export default function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-3">
             <Button asChild className="min-w-[12rem]">
-              <Link href="/contact#book">Book Appointment</Link>
+              <Link href="/contact">Book Appointment</Link>
             </Button>
             <Button asChild variant="outline" className="min-w-[12rem]">
               <Link href="/services">Explore Treatments</Link>
@@ -72,7 +72,7 @@ type Hero2Props = {
 export function Hero2({
   headline = "Smiles that shine out",
   subheadline = "Gentle, precise, evidence-based orthodontic care.",
-  ctaPrimaryHref = "/contact#book",
+  ctaPrimaryHref = "/contact",
   ctaPrimaryLabel = "Book Appointment",
   ctaSecondaryHref = "/services",
   ctaSecondaryLabel = "Explore Treatments",

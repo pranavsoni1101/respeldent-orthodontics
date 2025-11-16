@@ -158,7 +158,7 @@ export default function SectionFaqResources() {
                 asChild
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                <Link href="/contact#book">Book a Consultation</Link>
+                <Link href="/contact">Book a Consultation</Link>
               </Button>
             </CardContent>
           </Card>

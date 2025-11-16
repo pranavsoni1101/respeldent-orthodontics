@@ -94,7 +94,7 @@ export default function AboutPage() {
                 size="sm"
                 className="mt-1 border-primary text-primary hover:bg-primary/10"
               >
-                <Link href="/contact#book">
+                <Link href="/contact">
                   Meet Dr. Purva <ArrowRight className="ml-1.5 size-3.5" />
                 </Link>
               </Button>
@@ -356,7 +356,7 @@ export default function AboutPage() {
                     asChild
                     className="bg-primary text-primary-foreground hover:bg-primary/90"
                   >
-                    <Link href="/contact#book">Book an appointment</Link>
+                    <Link href="/contact">Book an appointment</Link>
                   </Button>
                   <Button
                     asChild

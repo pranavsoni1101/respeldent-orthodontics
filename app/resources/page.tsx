@@ -53,7 +53,7 @@ export default function ResourcesPage() {
 
           <div className="mt-6 flex flex-wrap gap-3">
             <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link href="/contact#book">Book Consultation</Link>
+              <Link href="/contact">Book Consultation</Link>
             </Button>
             <Button asChild variant="outline" className="border-secondary text-secondary-foreground hover:bg-secondary/10">
               <Link href="/contact">Contact Clinic</Link>
@@ -131,7 +131,7 @@ export default function ResourcesPage() {
                 </a>
               </Button>
               <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                <Link href="/contact#book">Book Now</Link>
+                <Link href="/contact">Book Now</Link>
               </Button>
             </div>
           </div>
@@ -267,7 +267,7 @@ export default function ResourcesPage() {
             </div>
             <div className="flex gap-3">
               <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                <Link href="/contact#book">Book Consultation</Link>
+                <Link href="/contact">Book Consultation</Link>
               </Button>
               <Button asChild variant="outline" className="border-secondary text-secondary-foreground hover:bg-secondary/10">
                 <Link href="/contact">Contact clinic</Link>

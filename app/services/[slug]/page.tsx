@@ -22,7 +22,7 @@ export default function ServicePage({ params }: Props) {
               <p className="mt-1 text-sm text-muted-foreground">{service.short}</p>
             </div>
             <div className="flex gap-3">
-              <Link href="/contact#book" className="inline-flex">
+              <Link href="/contact" className="inline-flex">
                 <Button className="bg-primary text-primary-foreground">Book Consultation</Button>
               </Link>
               <Link href="/services" className="inline-flex">
@@ -130,7 +130,7 @@ export default function ServicePage({ params }: Props) {
                   <h4 className="text-sm font-semibold text-foreground">Book & Fees</h4>
                   <p className="text-sm text-muted-foreground">Fees vary by case complexity. Book a consultation for a precise quote.</p>
                   <div className="mt-4">
-                    <Link href="/contact#book" className="block">
+                    <Link href="/contact" className="block">
                       <Button className="w-full bg-primary text-primary-foreground">Book Consultation</Button>
                     </Link>
                   </div>

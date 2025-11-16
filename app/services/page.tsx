@@ -40,7 +40,7 @@ export default function ServicesIndex() {
                 <Search className="absolute right-2 top-2 size-4 text-muted-foreground" />
               </div>
               <Button asChild className="hidden md:inline-flex bg-primary text-primary-foreground">
-                <Link href="/contact#book">Book Consultation</Link>
+                <Link href="/contact">Book Consultation</Link>
               </Button>
             </div>
           </div>
@@ -74,7 +74,7 @@ function ServiceCard({ service }: { service: Service }) {
               <Link href={`/services/${service.slug}`} className="text-sm font-medium text-primary hover:underline">
                 Learn more →
               </Link>
-              <Link href="/contact#book" className="ml-auto text-sm">
+              <Link href="/contact" className="ml-auto text-sm">
                 <Button className="bg-primary text-primary-foreground text-sm">Book</Button>
               </Link>
             </div>

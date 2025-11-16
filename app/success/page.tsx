@@ -168,7 +168,7 @@ export default function SuccessStoriesPage() {
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
                 size="sm"
               >
-                <Link href="/contact#book">Book a consultation</Link>
+                <Link href="/contact">Book a consultation</Link>
               </Button>
               <Button
                 asChild
@@ -259,7 +259,7 @@ export default function SuccessStoriesPage() {
               asChild
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              <Link href="/contact#book">Book an appointment</Link>
+              <Link href="/contact">Book an appointment</Link>
             </Button>
           </div>
         </div>
