@@ -47,29 +47,38 @@ export default function SectionProof({
   subtitle = "Real transformations, real stories — and clear reasons patients choose Resplendent.",
   cases = [
     {
-      before: "https://images.pexels.com/photos/3845855/pexels-photo-3845855.jpeg",
-      after: "https://images.pexels.com/photos/6528908/pexels-photo-6528908.jpeg",
+      before:
+        "https://images.pexels.com/photos/3845855/pexels-photo-3845855.jpeg",
+      after:
+        "https://images.pexels.com/photos/6528908/pexels-photo-6528908.jpeg",
       label: "Crowding",
     },
     {
-      before: "https://images.pexels.com/photos/33748023/pexels-photo-33748023.jpeg",
-      after: "https://images.pexels.com/photos/13207280/pexels-photo-13207280.jpeg",
+      before:
+        "https://images.pexels.com/photos/33748023/pexels-photo-33748023.jpeg",
+      after:
+        "https://images.pexels.com/photos/13207280/pexels-photo-13207280.jpeg",
       label: "Deep Bite",
     },
     {
-      before: "https://images.pexels.com/photos/33748023/pexels-photo-33748023.jpeg",
-      after: "https://images.pexels.com/photos/13207280/pexels-photo-13207280.jpeg",
+      before:
+        "https://images.pexels.com/photos/33748023/pexels-photo-33748023.jpeg",
+      after:
+        "https://images.pexels.com/photos/13207280/pexels-photo-13207280.jpeg",
       label: "Open Bite",
     },
     {
-      before: "https://images.pexels.com/photos/3845855/pexels-photo-3845855.jpeg",
-      after: "https://images.pexels.com/photos/6528908/pexels-photo-6528908.jpeg",
+      before:
+        "https://images.pexels.com/photos/3845855/pexels-photo-3845855.jpeg",
+      after:
+        "https://images.pexels.com/photos/6528908/pexels-photo-6528908.jpeg",
       label: "Spacing",
     },
   ],
   testimonials = [
     {
-      quote: "Painless, precise, and so thoughtfully explained. I loved the experience.",
+      quote:
+        "Painless, precise, and so thoughtfully explained. I loved the experience.",
       author: "Ms. Ritthika",
       tag: "Braces",
     },
@@ -164,7 +173,10 @@ export default function SectionProof({
               </div>
 
               <div className="pt-6">
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+                <Button
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  asChild
+                >
                   <Link href="/success">View More Success Stories</Link>
                 </Button>
               </div>
@@ -207,17 +219,20 @@ export default function SectionProof({
                 Book an appointment or explore treatment options with our team.
               </p>
             </div>
-            <div className="flex w-full gap-3 md:w-auto">
+
+            {/* stack on mobile, row on md+ */}
+            <div className="flex w-full flex-col gap-3 md:w-auto md:flex-row">
               <Button
                 asChild
-                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 md:w-auto"
+                className="w-full md:w-auto bg-accent text-accent-foreground hover:bg-accent/90"
               >
                 <Link href="/contact#book">Book Appointment</Link>
               </Button>
+
               <Button
                 asChild
                 variant="outline"
-                className="w-full bg-primary border-primary hover:text-white  hover:bg-primary/40 md:w-auto"
+                className="w-full md:w-auto bg-primary border-primary hover:text-white hover:bg-primary/40"
               >
                 <Link href="/services">Explore Treatments</Link>
               </Button>
@@ -281,7 +296,9 @@ function BeforeAfterCard({ before, after, label }: BeforeAfter) {
 
       {/* Hint text */}
       <div className="absolute right-3 bottom-3 rounded-full border border-accent/50 bg-background/90 px-2 py-0.5 text-[10px] text-accent-foreground">
-        {isRevealed ? "Tap or hover to see before" : "Tap or hover to see after"}
+        {isRevealed
+          ? "Tap or hover to see before"
+          : "Tap or hover to see after"}
       </div>
     </div>
   );
