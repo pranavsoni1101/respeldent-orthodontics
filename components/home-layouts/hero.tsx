@@ -29,7 +29,8 @@ export default function Hero() {
             Smiles that shine out
           </h1>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-            Get the smile you’ve always wanted — precise, gentle, and guided by science.
+            Get the smile you’ve always wanted — precise, gentle, and guided by
+            science.
           </p>
           <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-3">
             <Button asChild className="min-w-[12rem]">
@@ -55,8 +56,6 @@ export default function Hero() {
   );
 }
 
-
-
 type Hero2Props = {
   headline?: string;
   subheadline?: string;
@@ -64,8 +63,8 @@ type Hero2Props = {
   ctaPrimaryLabel?: string;
   ctaSecondaryHref?: string;
   ctaSecondaryLabel?: string;
-  videoSrc?: string;       // default: /hero.mp4
-  posterSrc?: string;      // optional poster image for faster first paint
+  videoSrc?: string; // default: /hero.mp4
+  posterSrc?: string; // optional poster image for faster first paint
   className?: string;
 };
 
@@ -84,8 +83,7 @@ export function Hero2({
     <section
       className={cn(
         "relative isolate overflow-hidden",
-        // make room for sticky navbar, and center content vertically
-        "min-h-[calc(100vh-70px)] sm:min-h-[calc(100vh-72px)] grid place-items-center px-4 sm:px-6",
+        "min-h-screen grid place-items-center px-4 sm:px-6", // 👈 changed here
         className
       )}
       aria-label="Hero"

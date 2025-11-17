@@ -44,17 +44,45 @@ type Props = {
 
 export default function SectionProof({
   title = "Results you can see. Care you can feel.",
-  subtitle = "Real transformations, real stories—and clear reasons patients choose Resplendent.",
+  subtitle = "Real transformations, real stories — and clear reasons patients choose Resplendent.",
   cases = [
-    { before: "https://images.pexels.com/photos/3845855/pexels-photo-3845855.jpeg", after: "https://images.pexels.com/photos/6528908/pexels-photo-6528908.jpeg", label: "Crowding" },
-    { before: "https://images.pexels.com/photos/33748023/pexels-photo-33748023.jpeg", after: "https://images.pexels.com/photos/13207280/pexels-photo-13207280.jpeg", label: "Deep Bite" },
-    { before: "https://images.pexels.com/photos/33748023/pexels-photo-33748023.jpeg", after: "https://images.pexels.com/photos/13207280/pexels-photo-13207280.jpeg", label: "Open Bite" },
-    { before: "https://images.pexels.com/photos/3845855/pexels-photo-3845855.jpeg", after: "https://images.pexels.com/photos/6528908/pexels-photo-6528908.jpeg", label: "Spacing" },
+    {
+      before: "https://images.pexels.com/photos/3845855/pexels-photo-3845855.jpeg",
+      after: "https://images.pexels.com/photos/6528908/pexels-photo-6528908.jpeg",
+      label: "Crowding",
+    },
+    {
+      before: "https://images.pexels.com/photos/33748023/pexels-photo-33748023.jpeg",
+      after: "https://images.pexels.com/photos/13207280/pexels-photo-13207280.jpeg",
+      label: "Deep Bite",
+    },
+    {
+      before: "https://images.pexels.com/photos/33748023/pexels-photo-33748023.jpeg",
+      after: "https://images.pexels.com/photos/13207280/pexels-photo-13207280.jpeg",
+      label: "Open Bite",
+    },
+    {
+      before: "https://images.pexels.com/photos/3845855/pexels-photo-3845855.jpeg",
+      after: "https://images.pexels.com/photos/6528908/pexels-photo-6528908.jpeg",
+      label: "Spacing",
+    },
   ],
   testimonials = [
-    { quote: "Painless, precise, and so thoughtfully explained. I loved the experience.", author: "Ms. Ritthika", tag: "Braces" },
-    { quote: "Clear aligners were easy and effective. I started smiling again.", author: "Mr. Sahil", tag: "Aligners" },
-    { quote: "The digital planning gave me so much confidence in the result.", author: "Ms. Sharmili", tag: "Digital Planning" },
+    {
+      quote: "Painless, precise, and so thoughtfully explained. I loved the experience.",
+      author: "Ms. Ritthika",
+      tag: "Braces",
+    },
+    {
+      quote: "Clear aligners were easy and effective. I started smiling again.",
+      author: "Mr. Sahil",
+      tag: "Aligners",
+    },
+    {
+      quote: "The digital planning gave me so much confidence in the result.",
+      author: "Ms. Sharmili",
+      tag: "Digital Planning",
+    },
   ],
 }: Props) {
   const autoplay = React.useRef(
@@ -66,31 +94,40 @@ export default function SectionProof({
   );
 
   return (
-    <section className="py-24 bg-secondary/10">
+    <section className="py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground">
             {title}
           </h2>
-          <p className="mt-2 text-base text-muted-foreground">{subtitle}</p>
+          <p className="mt-2 text-base text-muted-foreground max-w-2xl mx-auto">
+            {subtitle}
+          </p>
         </div>
 
         {/* Content: Transformations + Testimonials */}
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+        <div className="mt-12 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2">
           {/* Transformations Grid */}
           <div className="grid grid-cols-2 gap-6">
             {cases.slice(0, 4).map((c, i) => (
-              <BeforeAfterCard key={i} before={c.before} after={c.after} label={c.label} />
+              <BeforeAfterCard
+                key={i}
+                before={c.before}
+                after={c.after}
+                label={c.label}
+              />
             ))}
           </div>
 
-          {/* Testimonials Carousel (lightweight text) */}
-          <Card className="border-border bg-card/80 shadow-sm backdrop-blur-sm">
-            <CardContent className="p-6 md:p-8 h-full flex flex-col">
+          {/* Testimonials Carousel */}
+          <Card className="border border-border/70 bg-card shadow-sm backdrop-blur-sm">
+            <CardContent className="flex h-full flex-col p-6 md:p-8">
               <div className="flex items-center gap-3 text-accent">
                 <Quote className="size-6" />
-                <p className="text-sm font-medium">Patient testimonials</p>
+                <p className="text-sm font-medium tracking-tight">
+                  Patient testimonials
+                </p>
               </div>
 
               <div className="mt-4 flex-1">
@@ -119,15 +156,15 @@ export default function SectionProof({
                     ))}
                   </CarouselContent>
 
-                  <div className="hidden md:flex gap-2 mt-6">
-                    <CarouselPrevious className="bg-background/80 hover:bg-background shadow-sm" />
-                    <CarouselNext className="bg-background/80 hover:bg-background shadow-sm" />
+                  <div className="mt-6 hidden gap-2 md:flex">
+                    <CarouselPrevious className="border-primary/40 text-primary hover:bg-primary/50 shadow-sm" />
+                    <CarouselNext className="border-primary/40 text-primary hover:bg-primary/50 shadow-sm" />
                   </div>
                 </Carousel>
               </div>
 
               <div className="pt-6">
-                <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
                   <Link href="/success">View More Success Stories</Link>
                 </Button>
               </div>
@@ -136,7 +173,7 @@ export default function SectionProof({
         </div>
 
         {/* Differentiators */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <Reason
             icon={<ScanLine className="size-6 text-primary" />}
             title="Digital precision"
@@ -160,18 +197,31 @@ export default function SectionProof({
         </div>
 
         {/* CTA band */}
-        <div className="mt-16 rounded-xl bg-primary/50 p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>
-            <h3 className="text-xl font-semibold text-black">Ready to begin your smile journey?</h3>
-            <p className="text-black/70">Book an appointment or explore treatment options with our team.</p>
-          </div>
-          <div className="flex w-full md:w-auto gap-3">
-            <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-              <Link href="/contact">Book Appointment</Link>
-            </Button>
-            <Button asChild variant="outline" className="bg-primary border-primary/20 text-background hover:bg-primary/70">
-              <Link href="/services">Explore Treatments</Link>
-            </Button>
+        <div className="mt-16 rounded-2xl bg-foreground p-6 md:p-8">
+          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+            <div>
+              <h3 className="text-xl font-semibold text-background">
+                Ready to begin your smile journey?
+              </h3>
+              <p className="text-sm text-background/70">
+                Book an appointment or explore treatment options with our team.
+              </p>
+            </div>
+            <div className="flex w-full gap-3 md:w-auto">
+              <Button
+                asChild
+                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 md:w-auto"
+              >
+                <Link href="/contact#book">Book Appointment</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="w-full bg-primary border-primary hover:text-white  hover:bg-primary/40 md:w-auto"
+              >
+                <Link href="/services">Explore Treatments</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -185,8 +235,7 @@ function BeforeAfterCard({ before, after, label }: BeforeAfter) {
   const [isRevealed, setIsRevealed] = React.useState(false);
 
   const handleToggle = () => {
-    // Only toggle on touch/click (helps mobile)
-    if (window.innerWidth < 1024) {
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
       setIsRevealed((prev) => !prev);
     }
   };
@@ -194,7 +243,7 @@ function BeforeAfterCard({ before, after, label }: BeforeAfter) {
   return (
     <div
       onClick={handleToggle}
-      className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-sm cursor-pointer select-none"
+      className="group relative select-none cursor-pointer overflow-hidden rounded-xl border border-border/70 bg-card shadow-sm"
     >
       {/* BEFORE image */}
       <Aspect>
@@ -204,7 +253,6 @@ function BeforeAfterCard({ before, after, label }: BeforeAfter) {
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover transition-all duration-500"
-          priority={false}
         />
       </Aspect>
 
@@ -212,7 +260,6 @@ function BeforeAfterCard({ before, after, label }: BeforeAfter) {
       <div
         className={cn(
           "absolute inset-0 transition-opacity duration-500",
-          // show on hover (desktop) or if toggled (mobile)
           isRevealed ? "opacity-100" : "opacity-0 group-hover:opacity-100"
         )}
       >
@@ -228,13 +275,13 @@ function BeforeAfterCard({ before, after, label }: BeforeAfter) {
       </div>
 
       {/* Label */}
-      <div className="absolute left-3 top-3 rounded-full bg-background/80 px-2.5 py-1 text-[11px] text-foreground shadow-sm">
+      <div className="absolute left-3 top-3 rounded-full bg-background/85 px-2.5 py-1 text-[11px] text-foreground shadow-sm">
         {label || "Case"}
       </div>
 
       {/* Hint text */}
-      <div className="absolute right-3 bottom-3 rounded-full border border-accent/50 bg-black/80 px-2 py-0.5 text-[10px] text-accent">
-        {isRevealed ? "Reveal before" : "Reveal after"}
+      <div className="absolute right-3 bottom-3 rounded-full border border-accent/50 bg-background/90 px-2 py-0.5 text-[10px] text-accent-foreground">
+        {isRevealed ? "Tap or hover to see before" : "Tap or hover to see after"}
       </div>
     </div>
   );
@@ -250,9 +297,9 @@ function Reason({
   text: string;
 }) {
   return (
-    <Card className="h-full border-border bg-card shadow-sm hover:shadow-md transition-shadow">
-      <CardContent className="p-6 flex items-start gap-4">
-        <div className="inline-flex size-10 items-center justify-center rounded-full bg-primary/15 ring-1 ring-primary/20 shrink-0">
+    <Card className="h-full border border-border/70 bg-card shadow-sm transition-shadow hover:shadow-md">
+      <CardContent className="flex items-start gap-4 p-6">
+        <div className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/15 ring-1 ring-primary/20">
           {icon}
         </div>
         <div>
@@ -265,7 +312,6 @@ function Reason({
 }
 
 function Aspect({ children }: { children: React.ReactNode }) {
-  // 4:3 aspect ratio looks good for intra-oral photos; tweak as needed
   return (
     <div className="relative w-full" style={{ paddingTop: "75%" }}>
       {children}
