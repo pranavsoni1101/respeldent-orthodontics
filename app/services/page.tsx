@@ -21,33 +21,62 @@ export default function ServicesIndex() {
     <main className="min-h-screen bg-background">
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-8 flex items-center justify-between gap-4">
+          {/* Header + search (responsive) */}
+          <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <h1 className="text-3xl font-semibold text-foreground">Our Services</h1>
-              <p className="text-sm text-muted-foreground mt-1">
-                Explore the treatments we offer — click any card to learn more.
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-secondary-foreground/80">
+                Treatments
+              </p>
+              <h1 className="mt-1 text-3xl md:text-4xl font-semibold text-foreground">
+                Our Services
+              </h1>
+              <p className="mt-2 max-w-xl text-sm md:text-base text-muted-foreground">
+                Explore the orthodontic treatments we offer — from classic
+                braces to advanced digital planning. Click any card to learn
+                more.
               </p>
             </div>
 
-            <div className="flex items-center gap-2">
-              <div className="relative">
-                <input
-                  value={q}
-                  onChange={(e) => setQ(e.target.value)}
-                  placeholder="Search services..."
-                  className="rounded-md border border-border bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-                <Search className="absolute right-2 top-2 size-4 text-muted-foreground" />
+            <div className="w-full max-w-md space-y-2 md:space-y-3">
+              <label className="block text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+                Search treatments
+              </label>
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                <div className="relative flex-1">
+                  <span className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-muted-foreground">
+                    <Search className="size-4" />
+                  </span>
+                  <input
+                    value={q}
+                    onChange={(e) => setQ(e.target.value)}
+                    placeholder="Braces, aligners, mini-implants..."
+                    className="w-full rounded-md border border-secondary/60 bg-background px-9 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary"
+                  />
+                </div>
+
+                {/* Desktop Book button */}
+                <Button
+                  asChild
+                  className="hidden whitespace-nowrap bg-secondary text-primary-foreground hover:bg-secondary/90 sm:inline-flex"
+                >
+                  <Link href="/contact#book">Book consultation</Link>
+                </Button>
               </div>
-              <Button asChild className="hidden md:inline-flex bg-primary text-primary-foreground">
-                <Link href="/contact">Book Consultation</Link>
+
+              {/* Mobile Book button */}
+              <Button
+                asChild
+                className="w-full bg-secondary text-primary-foreground hover:bg-secondary/90 sm:hidden"
+              >
+                <Link href="/contact#book">Book consultation</Link>
               </Button>
             </div>
           </div>
 
+          {/* Cards */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {results.map((s) => (
-              <ServiceCard key={s.slug} service={s} />
+            {results.map((service) => (
+              <ServiceCard key={service.slug} service={service} />
             ))}
           </div>
         </div>
@@ -58,25 +87,38 @@ export default function ServicesIndex() {
 
 function ServiceCard({ service }: { service: Service }) {
   return (
-    <Card className="border-border bg-card shadow-sm hover:shadow-md transition-shadow">
+    <Card className="border border-secondary/40 bg-card shadow-sm transition-all hover:border-primary/60 hover:shadow-md">
       <CardContent className="p-5">
         <div className="flex items-start gap-4">
-          <div className="inline-flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-            {/* optional image or icon */}
+          <div className="inline-flex size-12 items-center justify-center rounded-lg bg-secondary/20 text-primary">
+            {/* simple initial – can swap with icon later */}
             <div className="text-lg font-semibold">{service.title[0]}</div>
           </div>
 
           <div className="flex-1">
-            <h3 className="text-base font-semibold text-foreground">{service.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{service.short}</p>
+            <h3 className="text-base font-semibold text-foreground">
+              {service.title}
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {service.short}
+            </p>
 
             <div className="mt-4 flex items-center gap-3">
-              <Link href={`/services/${service.slug}`} className="text-sm font-medium text-primary hover:underline">
+              <Link
+                href={`/services/${service.slug}`}
+                className="text-sm font-medium text-primary hover:underline"
+              >
                 Learn more →
               </Link>
-              <Link href="/contact" className="ml-auto text-sm">
-                <Button className="bg-primary text-primary-foreground text-sm">Book</Button>
-              </Link>
+
+              <Button
+                asChild
+                variant="outline"
+                className="ml-auto border-secondary text-secondary-foreground hover:bg-secondary/10 hover:text-secondary-foreground"
+                size="sm"
+              >
+                <Link href="/contact#book">Book</Link>
+              </Button>
             </div>
           </div>
         </div>
