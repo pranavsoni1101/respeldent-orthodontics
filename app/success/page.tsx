@@ -187,25 +187,38 @@ export default function SuccessStoriesPage() {
       <section className="py-14 md:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           {/* Filters */}
-          <div className="flex flex-wrap gap-2 rounded-full border border-secondary/40 bg-secondary/10 px-3 py-2">
-            {CATEGORY_CONFIG.map(({ id, label, icon: Icon }) => (
-              <button
-                key={id}
-                type="button"
-                onClick={() => setActiveCategory(id)}
-                className={cn(
-                  "flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs md:text-sm transition-colors",
-                  "border border-transparent",
-                  activeCategory === id
-                    ? "bg-primary text-primary-foreground border-primary"
-                    : "bg-background/60 text-muted-foreground hover:bg-background"
-                )}
-              >
-                <Icon className="size-3.5 md:size-4" />
-                <span>{label}</span>
-              </button>
-            ))}
+          {/* Filters */}
+          <div className="mt-4">
+            <div className="
+    flex flex-wrap 
+    gap-2 
+    rounded-xl 
+    border border-secondary/40 
+    bg-secondary/10 
+    px-4 py-4
+  ">
+              {CATEGORY_CONFIG.map(({ id, label, icon: Icon }) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => setActiveCategory(id)}
+                  className={cn(
+                    "flex items-center gap-1.5 px-3 py-1.5",
+                    "rounded-full text-xs md:text-sm transition-colors",
+                    "border border-transparent",
+                    activeCategory === id
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "bg-background/60 text-muted-foreground hover:bg-background"
+                  )}
+                >
+                  <Icon className="size-3.5 md:size-4" />
+                  <span>{label}</span>
+                </button>
+              ))}
+            </div>
           </div>
+
+
 
           {/* Grid */}
           <div className="mt-10 grid gap-8 md:grid-cols-2">
@@ -319,10 +332,10 @@ function CaseCard({ caseStudy }: { caseStudy: CaseStudy }) {
               {caseStudy.category === "braces"
                 ? "Braces"
                 : caseStudy.category === "aligners"
-                ? "Clear Aligners"
-                : caseStudy.category === "pediatric"
-                ? "Pediatric"
-                : "Surgical / Complex"}
+                  ? "Clear Aligners"
+                  : caseStudy.category === "pediatric"
+                    ? "Pediatric"
+                    : "Surgical / Complex"}
             </Badge>
           </div>
           <div className="absolute right-3 bottom-3 rounded-full border border-primary/60 bg-background/90 px-2 py-0.5 text-[10px] text-primary">
